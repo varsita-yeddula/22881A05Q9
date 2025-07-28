@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Log from './log'
 
 const URLShortenerApp = () => {
+Logger.frontend.info('component', 'URL Shortener application initialized successfully');
   const [currentPage, setCurrentPage] = useState('shortener');
   const [urls, setUrls] = useState([]);
   const [formData, setFormData] = useState({
@@ -52,6 +54,8 @@ const URLShortenerApp = () => {
 
   const handleSubmit = () => {
     const newErrors = {};
+
+    Logger.frontend.info('api', 'Attempting to shorten URL: https://example.com/very-long-url');
 
     if (!formData.originalUrl) {
       newErrors.originalUrl = 'Original URL is required';
